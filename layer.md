@@ -22,6 +22,12 @@
 
 ---
 
+## Properties
+
+<!-- TODO -->
+
+---
+
 For an arbitrary `layer` object named `L`, functions of the form `L.func_name(parameters) -> return_type` are __*value-returning functions*__, while functions of the form `L.func_name(parameters);` are __*void functions*__, which perform an action but return nothing.
 
 <!-- TODO -->

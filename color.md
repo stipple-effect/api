@@ -4,9 +4,9 @@
 
 This API inherits the `color` type from the DeltaScript base language and extends it in the ways described below.
 
----
+## Properties
 
-These definitions use the arbitrary color object `C` as the function caller.
+These definitions use the arbitrary color object `C` as the caller.
 
 ### Hue (`hue`)
 ```js
