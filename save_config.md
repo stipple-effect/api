@@ -23,6 +23,8 @@
 
 ---
 
+## Functions
+
 For an arbitrary `save_config` object named `SC`, functions of the form `SC.func_name(parameters) -> return_type` are __*value-returning functions*__, while functions of the form `SC.func_name(parameters);` are __*void functions*__, which perform an action but return nothing.
 
 <!-- TODO -->

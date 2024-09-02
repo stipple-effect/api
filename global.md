@@ -16,17 +16,17 @@ The global namespace for this API is `$SE`. All Stipple Effect functions that ar
 
 ## Constants
 
-Constants are bound to primitive data values like `int` or `bool`. Thus, they can technically be avoided and replaced by their literal values. However, using constants makes scripts more __*readable*__ and __*maintainable*__, and most importantly ensures that scripts do not break if the value assigned to a constant changes in a feature update.
+Constants are bound to primitive data values like `int` or `bool`. Thus, they can technically be avoided and replaced by their literal values. However, using constants makes scripts more __*readable*__ and __*maintainable*__, and most importantly ensures that scripts do not break if the value assigned to a constant changes in a future update.
 
 ### Scope constants
 
 These constants are used to specify a [scope](https://github.com/jbunke/se-docs/blob/master/scope.md) for program operations like [palettization](https://github.com/jbunke/se-docs/blob/master/palettization.md), for example.
 
 ```js
-$SE.PROJECT = 0
-$SE.LAYER = 1
-$SE.FRAME = 2
-$SE.CEL = 3
+$SE.PROJECT = 0         // The entire project
+$SE.LAYER = 1           // All cels on the currently selected layer
+$SE.FRAME = 2           // All cels at the currently frame index
+$SE.CEL = 3             // The cel on the current layer at the current frame index
 ```
 
 ### Save type constants
@@ -34,18 +34,18 @@ $SE.CEL = 3
 These constants are used to specify a [save type](https://github.com/jbunke/se-docs/blob/master/scope.md) for a [`save_config`](save_config.md) object. Save types are essentially the type of file that the `save_config` object will save projects as, though there are multiple save types that save projects to the same type of file, albeit differently.
 
 ```js
-$SE.NATIVE = 0
-$SE.PNG_SHEET = 1
-$SE.PNG_SEPARATE = 2
-$SE.GIF = 3
-$SE.MP4 = 4
+$SE.NATIVE = 0          // The native file type (.stip)
+$SE.PNG_SHEET = 1       // The project as a single PNG image/sprite sheet
+$SE.PNG_SEPARATE = 2    // Separate PNG images for each frame of the project
+$SE.GIF = 3             // An animated GIF
+$SE.MP4 = 4             // MP4 video
 ```
 
 ### Dimension constants
 
 ```js
-$SE.HORZ = true
-$SE.VERT = false
+$SE.HORZ = true         // Horizontal sequencing order; L to R, T to B
+$SE.VERT = false        // Vertical sequencing order; T to B, L to R
 ```
 
 ---
