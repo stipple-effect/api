@@ -1,10 +1,23 @@
-<!-- TODO - Proofread and update for 1.2.0 -->
+<!-- Proofread and update for 1.2.0 -->
+<!-- TODO:
+    * $SE.read_script(string) -> script
+    * $SE.new_save_config(string[], string, int) -> save_config
+    * $SE.transform(project, script, bool, bool) -> project
+    * $SE.transform(project, script) -> project
+
+    * Constants
+      * Class 1
+      * Class 2
+      * Class 3
+-->
 
 # Global namespace (`$SE`)
 
 [`< API`](README.md)
 
 The global namespace for this API is `$SE`. All Stipple Effect functions that are not called on an object are called on the global namespace.
+
+---
 
 Functions of the form `$SE.func_name(parameters) -> return_type` are __*value-returning functions*__, while functions of the form `$SE.func_name(parameters);` are __*void functions*__, which perform an action but return nothing.
 
@@ -24,15 +37,21 @@ Returns the current active project in Stipple Effect.
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/new_project.png) `new_project`
 1.  ```js
-    $SE.new_project(int w, int h) -> project
+    $SE.new_project(int w, int h, bool open_in_se) -> project
     ```
-    Creates a new project with a canvas size specified by `w` x `h` pixels, sets it to be the active project in Stipple Effect, and returns its reference.
+    Creates a new project with a canvas size specified by `w` x `h` pixels and returns its reference.
+    
+    If `open_in_se` is `true`, the new project is opened in Stipple Effect and set as the active project.
 
     **Constraints:** `0 < w <= 1920 && 0 < h <= 1080`
 2.  ```js
+    $SE.new_project(int w, int h) -> project
+    ```
+    Equivalent to `$SE.new_project(w, h, true)`
+3.  ```js
     $SE.new_project(int w, int h);
     ```
-    Like (1), but does not return the reference to the newly created project.
+    Like (2), but does not return the reference to the newly created project.
 
 ## Color functions
 

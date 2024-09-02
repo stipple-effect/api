@@ -1,4 +1,11 @@
-<!-- TODO - Proofread and update for 1.2.0 -->
+<!-- Proofread and update for 1.2.0 -->
+<!-- TODO
+    * P.get_width() -> int
+    * P.get_height() -> int
+    * P.get_layer(string) -> layer
+    * P.get_save_config() -> save_config
+    * P.save_as(save_config);
+-->
 
 # `project`
 
@@ -6,6 +13,8 @@
 
 `project`'s correspondent type in the Stippe Effect source code is [`SEContext`](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/project/SEContext.java).
 
-For an arbitrary `project` named `P`, functions of the form `P.func_name(parameters) -> return_type` are __*value-returning functions*__, while functions of the form `P.func_name(parameters);` are __*void functions*__, which perform an action but return nothing.
+---
+
+For an arbitrary `project` object named `P`, functions of the form `P.func_name(parameters) -> return_type` are __*value-returning functions*__, while functions of the form `P.func_name(parameters);` are __*void functions*__, which perform an action but return nothing.
 
 <!-- TODO -->
