@@ -1,9 +1,3 @@
-<!-- Proofread and update for 1.2.0 -->
-<!-- TODO
-    * L.get_name() -> string
-    * L.set_name(string);
--->
-
 # `layer`
 
 [`< API`](README.md)
@@ -93,6 +87,25 @@ Sets the opacity of the layer `L` to `opacity`.
 **Constraints:**
 * `opacity >= 0.0`
 * `opacity <= 1.0`
+
+### `get_name`
+```js
+L.get_name() -> string
+```
+Returns the name of the layer `L`.
+
+### `set_name`
+```js
+L.set_name(string name);
+```
+Sets the name of the layer `L` to `name`.
+
+**Constraints:**
+* `#|name > 0`
+* ```js
+  for (char disallowed in ['/', '\\', ':', '*', '?', '"', '<', '>', '|'])
+      !name.has(disallowed)
+  ```
 
 ### `get_cel`
 ```js

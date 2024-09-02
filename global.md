@@ -1,11 +1,3 @@
-<!-- Proofread and update for 1.2.0 -->
-<!-- TODO:
-    * $SE.read_script(string) -> script
-    * $SE.new_save_config(string[], string, int) -> save_config
-    * $SE.transform(project, script, bool, bool) -> project
-    * $SE.transform(project, script) -> project
--->
-
 # Global namespace (`$SE`)
 
 [`< API`](README.md)
@@ -84,6 +76,30 @@ Returns the current active project in Stipple Effect.
     ```
     Like (2), but does not return the reference to the newly created project.
 
+## Miscellaneous functions
+
+### `new_save_config`
+```js
+$SE.new_save_config(string[] folder, string filename, int save_type) -> save_config
+```
+<!-- TODO -->
+
+### `read_script`
+```js
+$SE.read_script(string filepath) -> script
+```
+<!-- TODO -->
+
+### `transform`
+1.  ```js
+    $SE.transform(project source, script transformer, bool open_in_se, bool run_per_layer) -> project
+    ```
+    <!-- TODO -->
+2.  ```js
+    $SE.transform(project source, script transformer) -> project
+    ```
+    Equivalent to `$SE.transform(source, transformer, true, false)`
+
 ## Color functions
 
 ### `get_primary`
@@ -136,9 +152,7 @@ Creates a new palette in Stipple Effect from the set of colors `cs` with the nam
 2.  ```js
     $SE.hsv(float h, float s, float v) -> color
     ```
-    Returns a color built from its hue, saturation and value components.
-
-    `$SE.hsv(h, s, v) <=> $SE.hsv(h, s, v, 255)`
+    Equivalent to `$SE.hsv(h, s, v, 255)`
 
 ## Outline functions
 
