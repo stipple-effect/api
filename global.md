@@ -1,11 +1,3 @@
-<!-- Proofread and update for 1.2.0 -->
-<!-- TODO:
-    * $SE.read_script(string) -> script
-    * $SE.new_save_config(string[], string, int) -> save_config
-    * $SE.transform(project, script, bool, bool) -> project
-    * $SE.transform(project, script) -> project
--->
-
 # Global namespace (`$SE`)
 
 [`< API`](README.md)
@@ -74,7 +66,15 @@ Returns the current active project in Stipple Effect.
     
     If `open_in_se` is `true`, the new project is opened in Stipple Effect and set as the active project.
 
-    **Constraints:** `0 < w <= 1920 && 0 < h <= 1080`
+    **Fails:**
+
+    Any of the following will cause the function not to execute:
+
+    * `w < 0`
+    * `w > 1920`
+    * `h < 0`
+    * `h > 1080`
+
 2.  ```js
     $SE.new_project(int w, int h) -> project
     ```
@@ -83,6 +83,67 @@ Returns the current active project in Stipple Effect.
     $SE.new_project(int w, int h);
     ```
     Like (2), but does not return the reference to the newly created project.
+
+## Miscellaneous functions
+
+### `new_save_config`
+```js
+$SE.new_save_config(string[] folder, string filename, int save_type) -> save_config
+```
+Instantiates a new `save_config` object with the parent folder path `folder`, base file name `filename`, and save type specified by the `int` enumeration value `save_type`.
+
+**Throws:**
+
+Any of the following will result in runtime errors:
+
+* An invalid `save_type` value
+* If `folder` is empty
+* If `folder` is not a valid directory in the file system
+* If `filename` is `""` or contains any of the following characters:
+    ```js
+    { '/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}' }
+    ```
+
+**Reading material:**
+* [Save type constants](global.md/#save-type-constants)
+
+### `read_script`
+```js
+$SE.read_script(string filepath) -> script
+```
+Reads, builds and returns a Stipple Effect child script from `filepath`.
+
+**Throws:**
+
+Any of the following will result in runtime errors:
+
+* If the interpreter cannot read a file at `filepath`
+* If the file at `filepath` cannot be compiled into a Stipple Effect script due to syntax errors
+
+Script execution will terminate if the child script fails its semantic error check.
+
+**Reading material:**
+* [Child scripts in the documentation](https://github.com/jbunke/se-docs/blob/master/child-scripts.md)
+
+### `transform`
+1.  ```js
+    $SE.transform(project source, script transformer, bool open_in_se, bool run_per_layer) -> project
+    ```
+    Transforms the contents of the project `source` into a new project with the preview script `transformer`. `source` is not modified by this operation.
+
+    The flag `open_in_se` will open the resultant project in Stipple Effect and set it as the active project.
+
+    The flag `run_per_layer` will apply `transformer` to the contents of each layer of `source`, as opposed to applying `transformer` to the flattened contents of `source`. This way, `run_per_layer` preserves the layers of `source`.
+
+    **Note:**
+
+    Depending on `transformer`, the flattened contents of a project created with `transform()` with the `run_per_layer` flag *may not match* the contents of a project created without the `run_per_layer` flag.
+2.  ```js
+    $SE.transform(project source, script transformer) -> project
+    ```
+    Equivalent to `$SE.transform(source, transformer, true, false)`
+
+    Runs (1) with the `open_in_se` flag set to `true` and the `run_per_layer` flag set to `false`.
 
 ## Color functions
 
@@ -133,40 +194,28 @@ Creates a new palette in Stipple Effect from the set of colors `cs` with the nam
     $SE.hsv(float h, float s, float v, int a) -> color
     ```
     Returns a color built from its hue, saturation, value and alpha components. Unlike `rgba()`, which takes as arguments integer values ranging from 0 to 255, each of the HSV component arguments (`h`, `s` and `v`) is a float ranging from 0.0 to 1.0. `a`, however, is still an integer ranging from 0 to 255.
+
+    **Throws:**
+
+    Any of the following will result in a runtime exception:
+
+    * For any `comp` of `h`, `s`, `v`; `comp < 0.0`
+    * For any `comp` of `h`, `s`, `v`; `comp > 1.0`
+    * `a > 255`
+    * `a < 0`
 2.  ```js
     $SE.hsv(float h, float s, float v) -> color
     ```
-    Returns a color built from its hue, saturation and value components.
-
-    `$SE.hsv(h, s, v) <=> $SE.hsv(h, s, v, 255)`
+    Equivalent to `$SE.hsv(h, s, v, 255)`
 
 ## Outline functions
-
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `outline`
-```js
-$SE.outline(int[]{} selection, int[] side_mask) -> int[]{}
-```
-Returns the outline of the initial selection `selection` when outlined with the side mask `side_mask`. The outlining algorithm can be found [here](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/selection/Outliner.java).
-
-<!-- TODO: add constraints -->
-
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `single_outline`
-```js
-$SE.single_outline(int[]{} selection, int border_px) -> int[]{}
-```
-Returns the outline of the initial selection `selection` when outlined with the single outline side mask with a border thickness of `border_px` pixels. A single outline outlines along the cardinal directional borders of the selection only.
-
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `double_outline`
-```js
-$SE.double_outline(int[]{} selection, int border_px) -> int[]{}
-```
-Returns the outline of the initial selection `selection` when outlined with the double outline side mask with a border thickness of `border_px` pixels. A double outline outlines along the cardinal directional borders of the selection as well as the diagonal borders.
 
 ### `get_side_mask`
 ```js
 $SE.get_side_mask() -> int[]
 ```
 Returns the current system outline side mask. This is an eight-element integer array. The indices correspond to the following directions:
+
 ```js
 0 = TOP 
 1 = LEFT 
@@ -184,7 +233,53 @@ $SE.set_side_mask(int[] side_mask);
 ```
 Sets the Stipple Effect outline side mask to `side_mask`.
 
-**Constraints:** `#|side_mask == 8`
+**Fails:** 
+
+Any of the following will cause the function not to execute:
+
+* `#|side_mask != 8`
+* For any `i`, `side_mask[i] < -10`
+* For any `i`, `side_mask[i] > -10`
+
+### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `outline`
+```js
+$SE.outline(int[]{} selection, int[] side_mask) -> int[]{}
+```
+Returns the outline of the initial selection `selection` when outlined with the side mask `side_mask`. The outlining algorithm can be found [here](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/selection/Outliner.java).
+
+**Throws:**
+
+Any of the following will result in runtime errors:
+
+* `#|side_mask != 8`
+* For any `i`, `side_mask[i] < -10`
+* For any `i`, `side_mask[i] > -10`
+
+### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `single_outline`
+```js
+$SE.single_outline(int[]{} selection, int border_px) -> int[]{}
+```
+Returns the outline of the initial selection `selection` when outlined with the single outline side mask with a border thickness of `border_px` pixels. A single outline outlines along the cardinal directional borders of the selection only.
+
+**Throws:**
+
+Any of the following will result in runtime errors:
+
+* `border_px < -10`
+* `border_px > -10`
+
+### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `double_outline`
+```js
+$SE.double_outline(int[]{} selection, int border_px) -> int[]{}
+```
+Returns the outline of the initial selection `selection` when outlined with the double outline side mask with a border thickness of `border_px` pixels. A double outline outlines along the cardinal directional borders of the selection as well as the diagonal borders.
+
+**Throws:**
+
+Any of the following will result in runtime errors:
+
+* `border_px < -10`
+* `border_px > -10`
 
 ## Tool functions
 
@@ -192,13 +287,17 @@ Sets the Stipple Effect outline side mask to `side_mask`.
 ```js
 $SE.wand(image img, int x, int y, float tolerance, bool global, bool diag) -> int[]{}
 ```
+<!-- TODO - rewrite -->
+
 Returns a set of arrays of two integers that represent the pixel coordinates of the result of a wand tool operation on the image `img`. `x` and `y` represent the initial target pixel of `img` that the operation is initiated from. `tolerance` is a value ranging from 0.0 (exact match) to 1.0 (trivial) that determines how tolerant the threshold of color similarity between the target pixel and any pixel to be included is. If `global` is true, the search algorithm searches the entire canvas irrespective of adjacency and includes all pixels that comply with the tolerance. If `global` is false, inclusions must be adjacent to the initial target pixel or at least one other inclusion. If `diag` is true, adjacency is defined as cardinal adjacency + diagonal adjacency. If `diag` is false, adjacency is simply defined as cardinal adjacency. For every `int[] coord` in the return set `int[]{}`, `coord[0]` is the pixel X coordinate and `coord[1]` is the pixel Y coordinate. The searching algorithm for `wand` and `fill` can be found [here](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/tools/ToolThatSearches.java).
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/fill.png) `fill`
 ```js
 $SE.fill(image img, color c, int x, int y, float tolerance, bool global, bool diag) -> image
 ```
-Returns the resultant image of a fill operation applied to the image `img`. `fill` performs the exact same search and computation as `wand`. However, instead of returning a selection as a `int[]{}`, `fill` takes that selection and sets every pixel in that selection to the color `c` in `img`.
+<!-- TODO - rewrite -->
+
+Returns the resultant image of a fill operation applied to the image `img`. `fill()` performs the exact same search and computation as [`wand()`](#wand). However, instead of returning a selection as a `int[]{}`, `fill()` takes that selection and sets every pixel in that selection to the color `c` in `img`.
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/fill.png) `fill_selection`
 1.  ```js

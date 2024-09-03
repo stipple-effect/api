@@ -1,9 +1,3 @@
-<!-- Proofread and update for 1.2.0 -->
-<!-- TODO
-    * L.get_name() -> string
-    * L.set_name(string);
--->
-
 # `layer`
 
 [`< API`](README.md)
@@ -90,9 +84,34 @@ L.set_opacity(float opacity);
 ```
 Sets the opacity of the layer `L` to `opacity`.
 
-**Constraints:**
-* `opacity >= 0.0`
-* `opacity <= 1.0`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+
+* `opacity < 0.0`
+* `opacity > 1.0`
+
+### `get_name`
+```js
+L.get_name() -> string
+```
+Returns the name of the layer `L`.
+
+### `set_name`
+```js
+L.set_name(string name);
+```
+Sets the name of the layer `L` to `name`.
+
+**Fails:**
+
+Any of the following will cause the function not to execute:
+
+* If `name` is `""`
+* If `name` contains any of the following characters:
+    ```js
+    { '/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}' }
+    ```
 
 ### `get_cel`
 ```js
@@ -100,9 +119,12 @@ L.get_cel(int i) -> image
 ```
 Returns the cel contents of layer `L` at frame index `i`. If the cels of layer `L` are linked, the function will return the linked content.
 
-**Constraints:**
-* `i >= 0`
-* `i < L.project.get_frame_count()`
+**Throws:**
+
+Any of the following will result in a runtime error:
+
+* `i < 0`
+* `i >= L.project.get_frame_count()`
 
 ### `set_cel`
 ```js
@@ -110,11 +132,14 @@ L.set_cel(int i, image content);
 ```
 Sets the content to the cel at index `i` of the layer `L` to the image `content`.
 
-**Constraints:**
-* `content.w == L.project.get_width()`
-* `content.h == L.project.get_height()`
-* `i >= 0`
-* `i < L.project.get_frame_count()`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+
+* `content.w != L.project.get_width()`
+* `content.h != L.project.get_height()`
+* `i < 0`
+* `i >= L.project.get_frame_count()`
 
 ### `edit_cel`
 ```js
@@ -122,9 +147,12 @@ L.edit_cel(int i, image drawn);
 ```
 Draws the image `drawn` on top of the cel's existing contents at position (0, 0).
 
-**Constraints:**
-* `i >= 0`
-* `i < L.project.get_frame_count()`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+
+* `i < 0`
+* `i >= L.project.get_frame_count()`
 
 ### `wipe_cel`
 ```js
@@ -132,6 +160,9 @@ L.wipe_cel(int i);
 ```
 Erases the contents of the cel at index `i` of the layer `L`. Resultingly, cel `i` of `L` will consist of a fully transparent image.
 
-**Constraints:**
-* `i >= 0`
-* `i < L.project.get_frame_count()`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+
+* `i < 0`
+* `i >= L.project.get_frame_count()`
