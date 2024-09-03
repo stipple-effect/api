@@ -16,11 +16,16 @@ SC.set_folder(string[] folder);
 ```
 Sets the file path of the parent folder for `SC` to `folder`. Each directory must be included as a unique `string` element in `folder`.
 
-For example, an intended save destination of `C:\Desktop\game\assets` should be expressed as an argument for `folder` as `["C:", "Desktop", "game", "assets"]`.
+For example, an intended save destination of `C:\Desktop\game\assets\` should be expressed as an argument for `folder` as:
+```js
+[ "C:", "Desktop", "game", "assets" ]
+```
 
-**Constraints:**
-* `#|folder > 0`
-* `folder` must be a valid directory in the file system
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* if `folder` is empty; i.e. `#|folder == 0`
+* if `folder` is not a valid directory in the file system
 
 ### `set_filename`
 ```js
@@ -29,12 +34,15 @@ SC.set_filename(string filename);
 
 Sets the filename of `SC` to `filename`. Note that `filename` refers only to the base name of the file. For a file saved to `C:\Desktop\example.png`, `filename` would be `"example"`, omitting the file type extension and the folder path.
 
-**Constraints:**
-* `#|filename > 0`
-* ```js
-  for (char disallowed in ['/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}'])
-      !filename.has(disallowed)
-  ```
+**Fails:**
+
+Any of the following will cause the function not to execute:
+
+* If `filename` is empty; i.e. `#|filename == 0`
+* If `filename` contains any of the following characters:
+    ```js
+    { '/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}' }
+    ```
 
 ### `set_save_type`
 ```js
@@ -53,9 +61,11 @@ SC.set_scale_up(int scale_up);
 ```
 Sets the scale factor of `SC` to `scale_up`.
 
-**Constraints:**
-* `scale_up > 0`
-* `scale_up <= 20`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* `scale_up <= 0`
+* `scale_up > 20`
 
 **Note:** This is an export option. It is irrelevant when the save type is `$SE.NATIVE`.
 
@@ -95,8 +105,10 @@ SC.set_frames_per_dim(int frames_per_dim);
 ```
 Sets the number of frames to be sequenced on each row or column of an exported sprite sheet by `SC` to `frames_per_dim`.
 
-**Constraints:**
-* `frames_per_dim > 0`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* `frames_per_dim <= 0`
 
 **Note:** This is an export option that is only relevant when the save type is `$SE.PNG_SHEET`.
 
@@ -114,8 +126,10 @@ SC.set_lower(int lower_bound);
 ```
 Sets `SC` to only export a subset of a project's frames, with the lower bound frame index (inclusive) marked by `lower_bound`.
 
-**Constraints:**
-* `lower_bound >= 0`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* `lower_bound < 0`
 
 **Note:** This is an export option. It is irrelevant when the save type is `$SE.NATIVE`.
 
@@ -125,8 +139,10 @@ SC.set_upper(int upper_bound);
 ```
 Sets `SC` to only export a subset of a project's frames, with the upper bound frame index (**inclusive**) marked by `upper_bound`.
 
-**Constraints:**
-* `upper_bound >= 0`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* `upper_bound < 0`
 
 **Note:** This is an export option. It is irrelevant when the save type is `$SE.NATIVE`.
 
@@ -138,12 +154,15 @@ If `SC` is configured to export frames separately, each frame file that is expor
 
 File name format: `folder + filename + prefix + frame_number + suffix + type_extension`
 
-**Constraints:**
-* `#|prefix <= 5`
-* ```js
-  for (char disallowed in ['/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}'])
-      !prefix.has(disallowed)
-  ```
+**Fails:**
+
+Any of the following will cause the function not to execute:
+
+* `#|prefix > 5`
+* If `prefix` contains any of the following characters:
+    ```js
+    { '/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}' }
+    ```
 
 **Note:** This is an export option that is only relevant when the save type is `$SE.PNG_SEPARATE`.
 
@@ -155,12 +174,15 @@ If `SC` is configured to export frames separately, each frame file that is expor
 
 File name format: `folder + filename + prefix + frame_number + suffix + type_extension`
 
-**Constraints:**
-* `#|suffix <= 5`
-* ```js
-  for (char disallowed in ['/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}'])
-      !suffix.has(disallowed)
-  ```
+**Fails:**
+
+Any of the following will cause the function not to execute:
+
+* `#|suffix > 5`
+* If `suffix` contains any of the following characters:
+    ```js
+    { '/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}' }
+    ```
 
 **Note:** This is an export option that is only relevant when the save type is `$SE.PNG_SEPARATE`.
 

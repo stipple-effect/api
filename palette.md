@@ -28,17 +28,13 @@ P.add_color(color c);
 ```
 Adds the color `c` to the palette `P`.
 
-**Constraints:**
-* `!P.colors().has(c)`
+**Fails** if `P.colors().has(c)`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/remove_color_from_palette.png) `remove_color`
 ```js
 P.remove_color(color c);
 ```
-Removes the color `c` from the palette `P`.
-
-**Constraints:**
-* `P.colors().has(c)`
+Removes the color `c` from the palette `P` if `P` contains `c`.
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/move_color_left_in_palette.png) `move_color_left`
 ```js
@@ -46,8 +42,7 @@ P.move_color_left(color c);
 ```
 Swaps the color `c` with the color to its left in the palette `P` if `c` is not the "leftmost" color in `P`.
 
-**Constraints:**
-* `P.colors().has(c)`
+**Fails** if `!P.colors().has(c)`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/move_color_right_in_palette.png) `move_color_right`
 ```js
@@ -55,5 +50,4 @@ P.move_color_right(color c);
 ```
 Swaps the color `c` with the color to its right in the palette `P` if `c` is not the "rightmost" color in `P`.
 
-**Constraints:**
-* `P.colors().has(c)`
+**Fails** if `!P.colors().has(c)`

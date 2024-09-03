@@ -22,9 +22,11 @@ P.set_frame_index(int i);
 ```
 Sets the active frame index of the project `P` to `i`.
 
-**Constraints:**
-* `i >= 0`
-* `i < P.get_frame_count()`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* `i < 0`
+* `i >= P.get_frame_count()`
 
 ### `get_frame_durations`
 ```js
@@ -38,9 +40,11 @@ P.get_frame_duration(int i) -> float
 ```
 Returns the duration of the frame at frame index `i` in the project `P` as a multiple of the duration of a standard frame (relative to the playback frame rate). For example, a frame that is to be displayed for twice as long as a standard frame will return `2.0`.
 
-**Constraints:**
-* `i >= 0`
-* `i < P.get_frame_count()`
+**Throws:**
+
+Any of the following will result in a runtime error:
+* `i < 0`
+* `i >= P.get_frame_count()`
 
 ### `set_frame_duration`
 ```js
@@ -48,11 +52,13 @@ P.set_frame_duration(int i, float frame_duration);
 ```
 Sets the frame duration of the frame at frame index `i` in the project `P` to `frame_duration`. This value represents how long a frame should be displayed relative to a standard frame, which has a frame duration of `1.0`.
 
-**Constraints:**
-* `i >= 0`
-* `i < P.get_frame_count()`
-* `frame_duration >= 0.1`
-* `frame_duration <= 20.0`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* `i < 0`
+* `i >= P.get_frame_count()`
+* `frame_duration < 0.1`
+* `frame_duration > 20.0`
 
 ### `get_frame_count`
 ```js
@@ -72,8 +78,7 @@ P.add_frame();
 ```
 Adds a new frame to the project `P` directly after the current active frame. The new frame becomes the new active frame.
 
-**Constraints:**
-* `P.get_frame_count() < 300`
+**Fails** if `P.get_frame_count() >= 300`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/duplicate_frame.png) `duplicate_frame`
 ```js
@@ -81,8 +86,7 @@ P.duplicate_frame();
 ```
 Duplicates the current active frame of project `P` and places the duplicate directly after the initial frame. The duplicate frame becomes the new active frame.
 
-**Constraints:**
-* `P.get_frame_count() < 300`
+**Fails** if `P.get_frame_count() >= 300`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/remove_frame.png) `remove_frame`
 ```js
@@ -90,8 +94,7 @@ P.remove_frame();
 ```
 Removes the current active frame of the project `P`. If the frame to be removed is the first frame, the active frame becomes the new first frame after the removal. Otherwise, the new active frame becomes the frame before the frame that was removed.
 
-**Constraints:**
-* `P.get_frame_count() > 1`
+**Fails** if `P.get_frame_count() == 1`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/move_frame_back.png) `move_frame_back`
 ```js
@@ -99,8 +102,7 @@ P.move_frame_back();
 ```
 Swaps the current active frame of the project `P` with the preceding frame.
 
-**Constraints:**
-* `P.get_frame_index() > 0`
+**Fails** if `P.get_frame_index() == 0`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/move_frame_forward.png) `move_frame_forward`
 ```js
@@ -108,8 +110,7 @@ P.move_frame_forward();
 ```
 Swaps the current active frame of the project `P` with the following frame.
 
-**Constraints:**
-* `P.get_frame_index() < P.get_frame_count() - 1`
+**Fails** if `P.get_frame_index() == P.get_frame_count() - 1`
 
 ### `get_layer`
 1.  ```js
@@ -121,9 +122,11 @@ Swaps the current active frame of the project `P` with the following frame.
     ```
     Returns the layer at layer index `i` in project `P`.
 
-    **Constraints:**
-    * `i >= 0`
-    * `i < #|P.get_layers()`
+    **Throws:**
+
+    Any of the following will result in a runtime error:
+    * `i < 0`
+    * `i >= #|P.get_layers()`
 3.  ```js
     P.get_layer(string name) -> layer
     ```
@@ -149,9 +152,11 @@ P.set_layer_index(int i);
 ```
 Sets the editing layer index of project `P` to `i`. Layers are ordered from the bottom up, so an index of 0 will correspond to the lowest layer.
 
-**Constraints:**
-* `i >= 0`
-* `i < #|P.get_layers()`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* `i < 0`
+* `i >= #|P.get_layers()`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/new_layer.png) `add_layer`
 ```js
@@ -159,8 +164,7 @@ P.add_layer();
 ```
 Adds a new layer to the project `P` directly above the current editing layer. The new layer becomes the new editing layer.
 
-**Constraints:**
-* `#|P.get_layers() < 50`
+**Fails** if `#|P.get_layers() >= 50`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/duplicate_layer.png) `duplicate_layer`
 ```js
@@ -168,8 +172,7 @@ P.duplicate_layer();
 ```
 Duplicates the current editing layer of project `P` and places the duplicate directly on top of the initial layer. The duplicate layer becomes the new editing layer.
 
-**Constraints:**
-* `#|P.get_layers() < 50`
+**Fails** if `#|P.get_layers() >= 50`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/remove_layer.png) `remove_layer`
 ```js
@@ -177,8 +180,7 @@ P.remove_layer();
 ```
 Removes the current editing layer of the project `P`. If the layer to be removed is the bottommost layer, the editing layer becomes the new bottommost layer after the removal. Otherwise, the new editing layer becomes the layer below the layer that was removed.
 
-**Constraints:**
-* `#|P.get_layers() > 1`
+**Fails** if `#|P.get_layers() == 1`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/move_layer_down.png) `move_layer_down`
 ```js
@@ -186,8 +188,7 @@ P.move_layer_down();
 ```
 Swaps the current editing layer of the project `P`.
 
-**Constraints:**
-* `P.get_layer().index > 0`
+**Fails** if `P.get_layer().index == 0`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/move_layer_up.png) `move_layer_up`
 ```js
@@ -195,14 +196,15 @@ P.move_layer_up();
 ```
 Swaps the current editing layer of the project `P`.
 
-**Constraints:**
-* `P.get_layer().index < #|P.get_layers() - 1`
+**Fails** if `P.get_layer().index == #|P.get_layers() - 1`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/merge_with_layer_below.png) `merge_with_below`
 ```js
 P.merge_with_below();
 ```
 Merges the current editing layer of the project `P` with the layer below it if the editing layer is not the lowest layer in `P`.
+
+**Fails** if `P.get_layer().index == 0`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/flatten.png) `flatten`
 ```js
@@ -216,11 +218,9 @@ P.is_selected(int x, int y) -> bool
 ```
 Returns `true` if the pixel at `x`, `y` is part of the current selection in the project `P`, `false` otherwise.
 
-**Constraints:**
-* `x >= 0`
-* `x < P.get_width()`
-* `y >= 0`
-* `y < P.get_height()`
+**Note:**
+
+`x` and `y` do not have to be within the bounds of the canvas of `P` to be included in its selection.
 
 ### `has_selection`
 ```js
@@ -240,11 +240,10 @@ P.set_selection(int[]{} selection);
 ```
 Sets the current pixel selection of the project `P` to `selection`.
 
-**Constraints:**
-* ```js
-  for (int[] coord in selection)
-      #|coord == 2
-  ```
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* For any `int[] coord` in `selection`, `#|coord != 2`
 
 ### `select_all`
 ```js
@@ -308,11 +307,13 @@ P.resize(int w, int h);
 ```
 Resizes the project `P` with a new canvas of dimensions `w` x `h` pixels.
 
-**Constraints:**
-* `w > 0`
-* `w <= 1920`
-* `h > 0`
-* `h <= 1080`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* `w <= 0`
+* `w > 1920`
+* `h <= 0`
+* `h > 1080`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/pad.png) `pad`
 ```js
@@ -320,11 +321,13 @@ P.pad(int l, int r, int t, int b);
 ```
 Pads the project `P` by `l` pixels to the left, `r` pixels to the right, `t` pixels upwards, and `b` pixels downwards. Arguments for `l`, `r`, `t` and `b` can be negative if one wants to trim the project rather than pad it in any direction.
 
-**Constraints:**
-* `P.get_width() + l + r > 0`
-* `P.get_width() + l + r <= 1920`
-* `P.get_height() + t + b > 0`
-* `P.get_height() + t + b <= 1080`
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* `P.get_width() + l + r <= 0`
+* `P.get_width() + l + r > 1920`
+* `P.get_height() + t + b <= 0`
+* `P.get_height() + t + b > 1080`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/stitch_split_frames.png) `stitch`
 ```js
@@ -336,7 +339,13 @@ Stitches the frames of the project `P` together, allotting `frames_per_dim` fram
 * If `dim` is `true`, the sequencing order is horizontal, and `frames_per_dim` frames are allotted to each __*row*__. Frames are sequenced left to right, top to bottom.
 * If `dim` is `false`, the sequencing order is vertical, and `frames_per_dim` frames are allotted to each __*column*__. Frames are sequenced top to bottom, left to right.
 
-Reading material:
+**Fails:**
+
+Any of the following will cause the function not to execute:
+* `frames_per_dim > 300`
+* `frames_per_dim <= 0`
+
+**Reading material:**
 * [Stitch operation in the documentation](https://github.com/jbunke/se-docs/blob/master/stitch.md)
 * [Dimension constants](global.md/#dimension-constants)
 
@@ -354,13 +363,15 @@ If `trunc_x` is true, any remaining content on the X-axis will be truncated and 
 
 `trunc_y` follows from `trunc_x`.
 
-**Constraints:**
-* `frm_w > 0`
-* `frm_w <= P.get_width()`
-* `frm_h > 0`
-* `frm_h <= P.get_height()`
+**Fails:**
 
-Reading material:
+Any of the following will cause the function not to execute:
+* `frm_w <= 0`
+* `frm_w > P.get_width()`
+* `frm_h <= 0`
+* `frm_h > P.get_height()`
+
+**Reading material:**
 * [Split operation in the documentation](https://github.com/jbunke/se-docs/blob/master/split.md)
 * [Dimension constants](global.md/#dimension-constants)
 
@@ -378,12 +389,14 @@ If `trunc_x` is true, any remaining content on the X-axis will be truncated and 
 
 `trunc_y` follows from `trunc_x`.
 
-**Constraints:**
-* `cols > 0`
-* `rows > 0`
-* `cols * row <= 300`
+**Fails:**
 
-Reading material:
+Any of the following will cause the function not to execute:
+* `cols <= 0`
+* `rows <= 0`
+* `cols * row > 300`
+
+**Reading material:**
 * [Split operation in the documentation](https://github.com/jbunke/se-docs/blob/master/split.md)
 * [Dimension constants](global.md/#dimension-constants)
 
