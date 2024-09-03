@@ -1,12 +1,3 @@
-<!-- Proofread and update for 1.2.0 -->
-<!-- TODO
-    * P.get_width() -> int
-    * P.get_height() -> int
-    * P.get_layer(string) -> layer
-    * P.get_save_config() -> save_config
-    * P.save_as(save_config);
--->
-
 # `project`
 
 [`< API`](README.md)
@@ -133,6 +124,12 @@ Swaps the current active frame of the project `P` with the following frame.
     **Constraints:**
     * `i >= 0`
     * `i < #|P.get_layers()`
+3.  ```js
+    P.get_layer(string name) -> layer
+    ```
+    Returns the lowest-indexed layer in `P` with a [name](layer.md/#get_name) matching `name`.
+
+    No matching layer in `P` will result in a runtime error.
 
 ### `get_layers`
 ```js
@@ -272,6 +269,38 @@ Inverts the current pixel selection of the project `P`. That is, for every pixel
 P.save();
 ```
 Saves the project `P` if `P` has a valid save configuration (`save_config`). That is, `P` has been assigned a folder, a filename, a valid project type for its contents (whether STIP, single PNG, GIF, etc.) and any associated metadata.
+
+### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/save_as.png) `save_as`
+```js
+P.save_as(save_config sc);
+```
+Attempts to set `sc` as the save configuration for `P` and save `P`.
+
+If `sc` is an imcomplete configuration, `P` is neither saved nor has its existing save configuration overwritten by `sc`. `sc` can be incomplete due to:
+* `sc` not having a folder
+* `sc` having an empty filename
+
+**Note:**
+
+Invalid `save_config` objects cannot be successfully instantiated via script, but can be referenced by calling [`get_save_config()`](#get_save_config) on a project with an as-yet undefined save configuration.
+
+### `get_save_config`
+```js
+P.get_save_config() -> save_config
+```
+Returns the `save_config` object associated with `P`.
+
+### `get_width`
+```js
+P.get_width() -> int
+```
+Returns the pixel width of the canvas of `P`.
+
+### `get_height`
+```js
+P.get_height() -> int
+```
+Returns the pixel height of the canvas of `P`.
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/resize.png) `resize`
 ```js
