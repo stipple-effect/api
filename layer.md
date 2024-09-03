@@ -103,7 +103,7 @@ Sets the name of the layer `L` to `name`.
 **Constraints:**
 * `#|name > 0`
 * ```js
-  for (char disallowed in ['/', '\\', ':', '*', '?', '"', '<', '>', '|'])
+  for (char disallowed in ['/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}'])
       !name.has(disallowed)
   ```
 

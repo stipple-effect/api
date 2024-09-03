@@ -19,8 +19,6 @@
 
 For an arbitrary `project` object named `P`, functions of the form `P.func_name(parameters) -> return_type` are __*value-returning functions*__, while functions of the form `P.func_name(parameters);` are __*void functions*__, which perform an action but return nothing.
 
-<!-- TODO -->
-
 ### `get_frame_index`
 ```js
 P.get_frame_index() -> int
@@ -306,8 +304,8 @@ P.stitch(int frames_per_dim, bool dim);
 Stitches the frames of the project `P` together, allotting `frames_per_dim` frames to every row or column.
 
 `dim` determines the sequencing order.
-* If `dim` is `true`, the sequencing order is horizontal, are `frames_per_dim` frames are allotted to each __*row*__. Frames are sequenced left to right, top to bottom.
-* If `dim` is `false`, the sequencing order is vertical, are `frames_per_dim` frames are allotted to each __*column*__. Frames are sequenced top to bottom, left to right.
+* If `dim` is `true`, the sequencing order is horizontal, and `frames_per_dim` frames are allotted to each __*row*__. Frames are sequenced left to right, top to bottom.
+* If `dim` is `false`, the sequencing order is vertical, and `frames_per_dim` frames are allotted to each __*column*__. Frames are sequenced top to bottom, left to right.
 
 Reading material:
 * [Stitch operation in the documentation](https://github.com/jbunke/se-docs/blob/master/stitch.md)
@@ -370,7 +368,7 @@ The following functions are perform an action over a given __*scope*__ of the pr
 
 An invalid `scope` value will result in a runtime error.
 
-The flag `include_disabled` will include disabled/invisible layers in the operation if the scope contains multiple layers (`$SE.PROJECT`, `$SE.FRAME`).
+The flag `include_disabled` will include disabled/invisible layers in the operation if `scope` contains multiple layers (`$SE.PROJECT`, `$SE.FRAME`).
 
 The flag `ignore_selection` will apply the operation to the entire canvas if it is `true` or if the project has no selection. If `ignore_selection` is false and the project has a selection, the operation will only be applied to the pixels in the selection.
 
