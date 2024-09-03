@@ -1,6 +1,6 @@
 # Stipple Effect API
 
-This is the scripting API (application programming interface) for Stipple Effect. It covers all the extensions made to the [DeltaScript base language](https://github.com/jbunke/delta-time/wiki/DeltaScript) for scripting in Stipple Effect.
+This is the scripting API (application programming interface) for Stipple Effect. It covers all the extensions made to the [DeltaScript base language](https://github.com/jbunke/deltascript) for scripting in Stipple Effect.
 
 For a more general overview of scripting in Stipple Effect, please visit [the documentation](https://github.com/jbunke/se-docs/blob/master/scripting.md).
 
