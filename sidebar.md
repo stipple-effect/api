@@ -1,4 +1,6 @@
-* [`$SE`](global.md) (global)
+* Namespaces
+  * [`$SE`](global.md) (global)
+  * [`$Math`](math.md)
 * Types
   * [`layer`](layer.md)
   * [`palette`](palette.md)

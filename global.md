@@ -2,7 +2,7 @@
 
 [`< API`](README.md)
 
-The global namespace for this API is `$SE`. All Stipple Effect functions that are not called on an object are called on the global namespace.
+The global namespace for this API is `$SE`. Most Stipple Effect functions that are not called on an object are called on the global namespace.
 
 ---
 

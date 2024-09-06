@@ -5,7 +5,9 @@ This is the scripting API (application programming interface) for Stipple Effect
 For a more general overview of scripting in Stipple Effect, please visit [the documentation](https://github.com/jbunke/se-docs/blob/master/scripting.md).
 
 ### Content
-* [Global namespace (`$SE`)](global.md)
+* Namespaces
+  * [Global namespace (`$SE`)](global.md)
+  * [`$Math`](math.md)
 * Types
   * [`layer`](layer.md)
   * [`palette`](palette.md)
