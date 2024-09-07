@@ -29,6 +29,8 @@ The `float` type in DeltaScript is actually implemented as a [double-precision f
 
 [**\[`Double` wrapper class Java documentation\]**](https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html)
 
+---
+
 ## Functions
 
 ### `cos`

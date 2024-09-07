@@ -7,6 +7,7 @@ For a more general overview of scripting in Stipple Effect, please visit [the do
 ### Content
 * Namespaces
   * [Global namespace (`$SE`)](global.md)
+  * [`$Graphics`](graphics.md)
   * [`$Math`](math.md)
 * Types
   * [`layer`](layer.md)

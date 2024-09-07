@@ -1,5 +1,8 @@
+### Contents
+
 * Namespaces
   * [`$SE`](global.md) (global)
+  * [`$Graphics`](graphics.md)
   * [`$Math`](math.md)
 * Types
   * [`layer`](layer.md)
