@@ -1,4 +1,4 @@
-# `$Math`
+# `$Graphics`
 
 [`< API`](README.md)
 
