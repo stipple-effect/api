@@ -10,7 +10,7 @@ The `$Graphics` namespace houses graphics utilities for processing images and co
 
 ### `gen_lookup`
 ```js
-$Graphics.gen_lookup(image source) -> image
+$Graphics.gen_lookup(image source, bool dim) -> image
 ```
 <!-- TODO -->
 
