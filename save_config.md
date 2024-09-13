@@ -82,7 +82,7 @@ A project's frame's duration property will be divided by `fps` to determine how 
 
 Reading material:
 
-* [Frame duration in the documentation](https://github.com/jbunke/se-docs/blob/master/frame-duration.md)
+* [Frame duration in the documentation](../docs/frame.md/#relative-duration)
 
 ### `set_dim`
 ```js

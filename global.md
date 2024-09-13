@@ -12,7 +12,7 @@ Constants are bound to primitive data values like `int` or `bool`. Thus, they ca
 
 ### Scope constants
 
-These constants are used to specify a [scope](https://github.com/jbunke/se-docs/blob/master/scope.md) for program operations like [palettization](https://github.com/jbunke/se-docs/blob/master/palettization.md), for example.
+These constants are used to specify a [scope](../docs/scope.md) for program operations like [palettization](../docs/palettization.md), for example.
 
 ```js
 $SE.PROJECT = 0         // The entire project
@@ -23,7 +23,7 @@ $SE.CEL = 3             // The cel on the current layer at the current frame ind
 
 ### Save type constants
 
-These constants are used to specify a [save type](https://github.com/jbunke/se-docs/blob/master/scope.md) for a [`save_config`](save_config.md) object. Save types are essentially the type of file that the `save_config` object will save projects as, though there are multiple save types that save projects to the same type of file, albeit differently.
+These constants are used to specify a [save type](../docs/save.md) for a [`save_config`](save_config.md) object. Save types are essentially the type of file that the `save_config` object will save projects as, though there are multiple save types that save projects to the same type of file, albeit differently.
 
 ```js
 $SE.NATIVE = 0          // The native file type (.stip)
@@ -123,7 +123,7 @@ Any of the following will result in runtime errors:
 Script execution will terminate if the child script fails its semantic error check.
 
 **Reading material:**
-* [Child scripts in the documentation](https://github.com/jbunke/se-docs/blob/master/child-scripts.md)
+* [Child scripts in the documentation](../docs/child-scripts.md)
 
 ### `transform`
 1.  ```js

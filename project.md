@@ -346,7 +346,7 @@ Any of the following will cause the function not to execute:
 * `frames_per_dim <= 0`
 
 **Reading material:**
-* [Stitch operation in the documentation](https://github.com/jbunke/se-docs/blob/master/stitch.md)
+* [Stitch operation in the documentation](../docs/sizing.md/#stitch-frames-into-sprite-sheet)
 * [Dimension constants](global.md/#dimension-constants)
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/stitch_split_frames.png) `split_px`
@@ -372,7 +372,7 @@ Any of the following will cause the function not to execute:
 * `frm_h > P.get_height()`
 
 **Reading material:**
-* [Split operation in the documentation](https://github.com/jbunke/se-docs/blob/master/split.md)
+* [Split operation in the documentation](../docs/sizing.md/#split-sprite-sheet-into-frames)
 * [Dimension constants](global.md/#dimension-constants)
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/stitch_split_frames.png) `split`
@@ -397,7 +397,7 @@ Any of the following will cause the function not to execute:
 * `cols * row > 300`
 
 **Reading material:**
-* [Split operation in the documentation](https://github.com/jbunke/se-docs/blob/master/split.md)
+* [Split operation in the documentation](../docs/sizing.md/#split-sprite-sheet-into-frames)
 * [Dimension constants](global.md/#dimension-constants)
 
 ---
@@ -415,7 +415,7 @@ The flag `include_disabled` will include disabled/invisible layers in the operat
 The flag `ignore_selection` will apply the operation to the entire canvas if it is `true` or if the project has no selection. If `ignore_selection` is false and the project has a selection, the operation will only be applied to the pixels in the selection.
 
 Reading material:
-* [Scope in the documentation](https://github.com/jbunke/se-docs/blob/master/scope.md)
+* [Scope in the documentation](../docs/scope.md)
 * [Scope constants](global.md/#scope-constants)
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/palettize.png) `palettize`
@@ -464,4 +464,4 @@ See [above](#color-actions) for details about `scope` and the flags `include_dis
 `cs` must have a valid color script type signature: `(color -> color)`. Attempting to pass an invalid script will result in a runtime error.
 
 Reading material:
-* [Color scripts in the documentation](https://github.com/jbunke/se-docs/blob/master/color-scripts.md)
+* [Color scripts in the documentation](../docs/color-scripts.md)

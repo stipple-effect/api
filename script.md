@@ -37,4 +37,4 @@ For an arbitrary `script` object named `S`, functions of the form `S.func_name(p
 
 Reading material:
 
-* [Script structure in the documentation](https://github.com/jbunke/se-docs/blob/master/scripting.md#syntax)
+* [Script structure in the documentation](../docs/scripting.md#syntax)
