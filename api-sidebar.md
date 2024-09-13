@@ -1,5 +1,3 @@
-### Contents
-
 * Namespaces
   * [`$SE`](global.md) (global)
   * [`$Graphics`](graphics.md)
