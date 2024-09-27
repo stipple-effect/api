@@ -2,6 +2,15 @@
 
 [`< Home`](README.md)
 
+## 1.2.2
+
+<!-- TODO -->
+### Added:
+* `light` type
+* New namespaces and associated functions and constants
+  * `$Graphics`
+  * `$Math`
+
 ## 1.2.0
 
 ### Added:

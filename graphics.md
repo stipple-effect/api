@@ -8,6 +8,12 @@ The `$Graphics` namespace houses graphics utilities for processing images and co
 
 ## Functions
 
+### `dir_light`
+```js
+$Graphics.dir_light(float luminosity, color c, float[] direction) -> light
+```
+<!-- TODO -->
+
 ### `gen_lookup`
 ```js
 $Graphics.gen_lookup(image source, bool dim) -> image
@@ -20,9 +26,15 @@ $Graphics.lerp_color(color a, color b, float t) -> color
 ```
 <!-- TODO -->
 
-### `light_mask`
+### `lighting`
 ```js
-$Graphics.light_mask(image source, float luminosity, float radius) -> image
+$Graphics.lighting(image texture, image normal, light<> lights) -> image
+```
+<!-- TODO -->
+
+### `point_light`
+```js
+$Graphics.point_light(float luminosity, color c, float radius, int x, int y, int z) -> light
 ```
 <!-- TODO -->
 
