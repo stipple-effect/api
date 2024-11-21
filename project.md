@@ -186,7 +186,7 @@ Removes the current editing layer of the project `P`. If the layer to be removed
 ```js
 P.move_layer_down();
 ```
-Swaps the current editing layer of the project `P`.
+Swaps the current editing layer of the project `P` with the layer below.
 
 **Fails** if `P.get_layer().index == 0`
 
@@ -194,7 +194,7 @@ Swaps the current editing layer of the project `P`.
 ```js
 P.move_layer_up();
 ```
-Swaps the current editing layer of the project `P`.
+Swaps the current editing layer of the project `P` with the layer above.
 
 **Fails** if `P.get_layer().index == #|P.get_layers() - 1`
 
