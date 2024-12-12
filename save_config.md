@@ -67,7 +67,7 @@ Any of the following will cause the function not to execute:
 * `scale_up <= 0`
 * `scale_up > 20`
 
-**Note:** This is an export option. It is irrelevant when the save type is `$SE.NATIVE`.
+**Note:** This is an export option. It is irrelevant when the save type of `SC` is [`$SE.NATIVE`](./global.md#save-type-constants).
 
 ### `set_fps`
 ```js
@@ -78,7 +78,7 @@ Sets the playback speed for `SC` to `fps` frames per second.
 
 A project's frame's duration property will be divided by `fps` to determine how long each frame should be displayed for. For example, a frame with a duration factor of `1.5` will be displayed for 0.15 seconds when exported with an `fps` of `10`, as 1.5x / 10 [Hz](https://en.wikipedia.org/wiki/Hertz) = 0.15 s.
 
-**Note:** This is an export option for animated media that is only relevant if the save type is `$SE.GIF` or `$SE.MP4`.
+**Note:** This is an export option for animated media that is only relevant if the save type of `SC` is [`$SE.GIF`](./global.md#save-type-constants) or [`$SE.MP4`](./global.md#save-type-constants).
 
 Reading material:
 
@@ -93,7 +93,7 @@ Sets the sequencing order of `SC` to `dim`:
 * If `dim` is `true`, the sequencing order is horizontal; frames are sequenced per row - left to right, top to bottom.
 * If `dim` is `false`, the sequencing order is vertical; frames are sequenced per column - top to bottom, left to right.
 
-**Note:** This is an export option that is only relevant when the save type is `$SE.PNG_SHEET`.
+**Note:** This is an export option that is only relevant when the save type of `SC` is [`$SE.PNG_SHEET`](./global.md#save-type-constants).
 
 Reading material:
 
@@ -110,7 +110,7 @@ Sets the number of frames to be sequenced on each row or column of an exported s
 Any of the following will cause the function not to execute:
 * `frames_per_dim <= 0`
 
-**Note:** This is an export option that is only relevant when the save type is `$SE.PNG_SHEET`.
+**Note:** This is an export option that is only relevant when the save type of `SC` is [`$SE.PNG_SHEET`](./global.md#save-type-constants).
 
 ### `unbounded`
 ```js
@@ -118,7 +118,7 @@ SC.unbounded();
 ```
 If `SC` is configured to only export a subset of a project's frames, calling `unbounded()` will disable that configuration and set `SC` to export all project frames.
 
-**Note:** This is an export option. It is irrelevant when the save type is `$SE.NATIVE`.
+**Note:** This is an export option. It is irrelevant when the save type of `SC` is [`$SE.NATIVE`](./global.md#save-type-constants).
 
 ### `set_lower`
 ```js
@@ -131,7 +131,7 @@ Sets `SC` to only export a subset of a project's frames, with the lower bound fr
 Any of the following will cause the function not to execute:
 * `lower_bound < 0`
 
-**Note:** This is an export option. It is irrelevant when the save type is `$SE.NATIVE`.
+**Note:** This is an export option. It is irrelevant when the save type of `SC` is [`$SE.NATIVE`](./global.md#save-type-constants).
 
 ### `set_upper`
 ```js
@@ -144,7 +144,7 @@ Sets `SC` to only export a subset of a project's frames, with the upper bound fr
 Any of the following will cause the function not to execute:
 * `upper_bound < 0`
 
-**Note:** This is an export option. It is irrelevant when the save type is `$SE.NATIVE`.
+**Note:** This is an export option. It is irrelevant when the save type of `SC` is [`$SE.NATIVE`](./global.md#save-type-constants).
 
 ### `set_prefix`
 ```js
@@ -164,7 +164,7 @@ Any of the following will cause the function not to execute:
     { '/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}' }
     ```
 
-**Note:** This is an export option that is only relevant when the save type is `$SE.PNG_SEPARATE`.
+**Note:** This is an export option that is only relevant when the save type of `SC` is [`$SE.PNG_SEPARATE`](./global.md#save-type-constants).
 
 ### `set_suffix`
 ```js
@@ -184,7 +184,7 @@ Any of the following will cause the function not to execute:
     { '/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}' }
     ```
 
-**Note:** This is an export option that is only relevant when the save type is `$SE.PNG_SEPARATE`.
+**Note:** This is an export option that is only relevant when the save type of `SC` is [`$SE.PNG_SEPARATE`](./global.md#save-type-constants).
 
 ### `set_count_from`
 ```js
@@ -192,4 +192,4 @@ SC.set_count_from(int count_from);
 ```
 If `SC` is configured to export frames separately, each frame file that is exported will be numbered incrementally starting from `count_from`.
 
-**Note:** This is an export option that is only relevant when the save type is `$SE.PNG_SEPARATE`.
+**Note:** This is an export option that is only relevant when the save type of `SC` is [`$SE.PNG_SEPARATE`](./global.md#save-type-constants).

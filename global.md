@@ -23,7 +23,7 @@ $SE.CEL = 3             // The cel on the current layer at the current frame ind
 
 ### Save type constants
 
-These constants are used to specify a [save type](../docs/save.md) for a [`save_config`](save_config.md) object. Save types are essentially the type of file that the `save_config` object will save projects as, though there are multiple save types that save projects to the same type of file, albeit differently.
+These constants are used to specify a [save type](../docs/save.md) for a [`save_config`](./save_config.md) object. Save types are essentially the type of file that the `save_config` object will save projects as, though there are multiple save types that save projects to the same type of file, albeit differently.
 
 ```js
 $SE.NATIVE = 0          // The native file type (.stip)
