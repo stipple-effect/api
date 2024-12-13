@@ -4,7 +4,6 @@
 
 ## 1.2.2
 
-<!-- TODO -->
 ### Added:
 * `light` type
 * New namespaces and associated functions and constants

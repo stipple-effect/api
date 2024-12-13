@@ -50,9 +50,11 @@ A directional light, as opposed to a point light, shines with a non-dimming lumi
 ```js
 $Graphics.gen_lookup(image source, bool dim) -> image
 ```
-<!-- TODO -->
+
+Takes an image `source` and generates a corresponding lookup image where every non-transparent pixel in `source` is assigned a unique opaque RGB color. The flag `dim` determines whether the lookup will have vertical or horizontal striping.
 
 **Reading material:**
+* [Lookup generation algorithm implementation](https://github.com/jbunke/delta-time/blob/master/sprite/src/com/jordanbunke/delta_time/sprite/UVMapping.java#L85)
 * [Dimension constants](./global.md#dimension-constants)
 
 ### `lerp_color`
@@ -94,4 +96,28 @@ A point light, as opposed to a directional light, originates at a specified poin
 ```js
 $Graphics.uv_mapping(image texture, image map, image animation) -> image
 ```
-<!-- TODO -->
+
+**Parameters:**
+* `texture` - a color texture
+* `map` - a lookup map corresponding to the shape and dimensions of `texture` where every non-transparent pixel should have a unique color
+* `animation` - a specification for an animation using the colors in `map`
+
+**Returns:**
+
+If `texture` and `map` do not have the same dimensions, returns `animation`. 
+
+Otherwise, returns the following image:
+
+* Initializes a blank image with the same dimensions as `animation`
+* For every non-transparent pixel at position `(ax, ay)` in `animation`...
+  * checks if the color `c` sampled at that pixel is present in `map`
+  * If it is...
+    * assigns the first (and ideally only) pixel instance of `c` as `(mx, my)`
+    * sets position `(ax, ay)` of the output image to the color of the pixel at `(mx, my)` in `texture`
+  * If it isn't...
+    * sets position `(ax, ay)` of the output image to `c`
+  
+
+**Reading material:**
+* [UV mapping algorithm implementation](https://github.com/jbunke/delta-time/blob/master/sprite/src/com/jordanbunke/delta_time/sprite/UVMapping.java#L40)
+* [`gen_lookup()`](#gen_lookup) - generating a naive lookup map for a `texture`

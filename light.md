@@ -1,7 +1,5 @@
 # `light`
 
-<!-- TODO -->
-
 [`< API`](README.md)
 
 `light`'s correspondent type in the Stippe Effect source code is [`Light`](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/scripting/util/Light.java).
@@ -16,76 +14,92 @@ For an arbitrary `light` object named `L`, functions of the form `L.func_name(pa
 ```js
 L.is_point() -> bool
 ```
-<!-- TODO -->
+Returns `true` if `L` is a point light, `false` if `L` is a directional light.
 
 ### `get_luminosity`
 ```js
 L.get_luminosity() -> float
 ```
-<!-- TODO -->
+Returns the luminosity of `L`.
 
 ### `set_luminosity`
 ```js
 L.set_luminosity(float luminosity);
 ```
-<!-- TODO -->
+Sets the luminosity of `L` to `luminosity`.
 
 ### `get_color`
 ```js
 L.get_color() -> color
 ```
-<!-- TODO -->
+Returns the base color of `L`.
 
 ### `set_color`
 ```js
 L.set_color(color c);
 ```
-<!-- TODO -->
+Sets the base color of `L` to `c`.
 
 ### `get_radius`
 ```js
 L.get_radius() -> float
 ```
-<!-- TODO -->
+Returns the radius of a point light `L`.
+
+**Throws** a runtime error if `!L.is_point()`
 
 ### `set_radius`
 ```js
 L.set_radius(float radius);
 ```
-<!-- TODO -->
+Sets the radius of a point light `L` to `radius`.
+
+**Fails** if `!L.is_point()`
 
 ### `get_z`
 ```js
 L.get_z() -> float
 ```
-<!-- TODO -->
+Returns the relative Z-axis position of a point light `L`.
+
+**Throws** a runtime error if `!L.is_point()`
 
 ### `set_z`
 ```js
 L.set_z(float z);
 ```
-<!-- TODO -->
+Sets the relative Z-axis position of a point light `L` to `z`.
+
+**Fails** if `!L.is_point()`
 
 ### `get_position`
 ```js
 L.get_position() -> int[]
 ```
-<!-- TODO -->
+Returns the pixel source position of a point light `L`.
+
+**Throws** a runtime error if `!L.is_point()`
 
 ### `set_position`
 ```js
 L.set_position(int[] position);
 ```
-<!-- TODO -->
+Sets the pixel source position of a point light `L` to `position`.
+
+**Fails** if `!L.is_point()`
 
 ### `get_direction`
 ```js
 L.get_direction() -> float[]
 ```
-<!-- TODO -->
+Returns the direction of a directional light `L`.
+
+**Throws** a runtime error if `L.is_point()`
 
 ### `set_direction`
 ```js
 L.set_direction(float[] direction);
 ```
-<!-- TODO -->
+Sets the direction of a directional light `L` to the 3-dimensional vector `direction`.
+
+**Fails** if `L.is_point()`

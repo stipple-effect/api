@@ -37,58 +37,76 @@ The `float` type in DeltaScript is actually implemented as a [double-precision f
 ```js
 $Math.cos(float rad) -> float
 ```
-<!-- TODO -->
+Returns the cosine of an angle (expressed in radians) `rad`.
+
+**Wraps** Java's [`Math.cos(double)`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#cos-double-) function
 
 ### `sin`
 ```js
 $Math.sin(float rad) -> float
 ```
-<!-- TODO -->
+Returns the sine of an angle (expressed in radians) `rad`.
+
+**Wraps** Java's [`Math.sin(double)`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#sin-double-) function
 
 ### `tan`
 ```js
 $Math.tan(float rad) -> float
 ```
-<!-- TODO -->
+Returns the tangent of an angle (expressed in radians) `rad`.
+
+**Wraps** Java's [`Math.tan(double)`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#tan-double-) function
 
 ### `acos`
 ```js
 $Math.acos(float ratio) -> float
 ```
-<!-- TODO -->
+Returns the arc cosine of `ratio`.
+
+**Wraps** Java's [`Math.acos(double)`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#acos-double-) function
 
 ### `asin`
 ```js
 $Math.asin(float ratio) -> float
 ```
-<!-- TODO -->
+Returns the arc sine of `ratio`.
+
+**Wraps** Java's [`Math.asin(double)`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#asin-double-) function
 
 ### `atan`
 ```js
 $Math.atan(float ratio) -> float
 ```
-<!-- TODO -->
+Returns the arc tangent of `ratio`.
+
+**Wraps** Java's [`Math.atan(double)`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#atan-double-) function
 
 ### `sqrt`
 ```js
 $Math.sqrt(float n) -> float
 ```
-<!-- TODO -->
+Returns the square root of a value `n`.
+
+**Wraps** Java's [`Math.sqrt(double)`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#sqrt-double-) function
 
 ### `round`
 ```js
 $Math.round(float n) -> float
 ```
-<!-- TODO -->
+Returns the closest integer to `n`, expressed as a `float`.
 
 ### `floor`
 ```js
 $Math.floor(float n) -> float
 ```
-<!-- TODO -->
+Returns the largest integer less than or equal to `n`, expressed as a `float`.
+
+**Wraps** Java's [`Math.floor(double)`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#floor-double-) function
 
 ### `ceil`
 ```js
 $Math.ceil(float n) -> float
 ```
-<!-- TODO -->
+Returns the smallest integer greater than or equal to `n`, expressed as a `float`.
+
+**Wraps** Java's [`Math.ceil(double)`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#ceil-double-) function
