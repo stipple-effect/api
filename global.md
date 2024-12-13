@@ -253,7 +253,7 @@ Any of the following will result in runtime errors:
 
 * `#|side_mask != 8`
 * For any `i`, `side_mask[i] < -10`
-* For any `i`, `side_mask[i] > -10`
+* For any `i`, `side_mask[i] > 10`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `single_outline`
 ```js
@@ -266,7 +266,7 @@ Returns the outline of the initial selection `selection` when outlined with the 
 Any of the following will result in runtime errors:
 
 * `border_px < -10`
-* `border_px > -10`
+* `border_px > 10`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `double_outline`
 ```js
@@ -279,7 +279,7 @@ Returns the outline of the initial selection `selection` when outlined with the 
 Any of the following will result in runtime errors:
 
 * `border_px < -10`
-* `border_px > -10`
+* `border_px > 10`
 
 ## Tool functions
 
@@ -287,9 +287,22 @@ Any of the following will result in runtime errors:
 ```js
 $SE.wand(image img, int x, int y, float tolerance, bool global, bool diag) -> int[]{}
 ```
-<!-- TODO - rewrite -->
+Returns a set of ordered pairs that represent the pixel coordinates of the result of a wand tool operation on the image `img`.
 
-Returns a set of arrays of two integers that represent the pixel coordinates of the result of a wand tool operation on the image `img`. `x` and `y` represent the initial target pixel of `img` that the operation is initiated from. `tolerance` is a value ranging from 0.0 (exact match) to 1.0 (trivial) that determines how tolerant the threshold of color similarity between the target pixel and any pixel to be included is. If `global` is true, the search algorithm searches the entire canvas irrespective of adjacency and includes all pixels that comply with the tolerance. If `global` is false, inclusions must be adjacent to the initial target pixel or at least one other inclusion. If `diag` is true, adjacency is defined as cardinal adjacency + diagonal adjacency. If `diag` is false, adjacency is simply defined as cardinal adjacency. For every `int[] coord` in the return set `int[]{}`, `coord[0]` is the pixel X coordinate and `coord[1]` is the pixel Y coordinate. The searching algorithm for `wand` and `fill` can be found [here](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/tools/ToolThatSearches.java).
+**Parameters:**
+
+* `img` - Image upon which the wand operation is performed
+* `(x, y)` - Initial position from which the wand searches; equivalent to the pixel that is clicked when the wand tool is used from within the Stipple Effect UI
+* `tolerance` - value from 0.0 (exact match) to 1.0 (maximally permissive) that determines how permissive of differences in color the wand is between the initial pixel and pixels being processed for inclusion
+* `global` (flag)
+  * if `true`, wand searches the entire canvas irrespective of adjacency
+  * if `false`, the wand iteratively searches from among the frontier of pixels adjacent to selection inclusions
+* `diag` (flag)
+  * if `true`, adjacency is defined as cardinal adjacency + diagonal adjacency
+  * if `false`, pixels must be cardinally adjacent in order to be considered
+
+**Reading material:**
+* [`wand` and `fill` search algorithm implementation](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/tools/ToolThatSearches.java)
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/fill.png) `fill`
 ```js
