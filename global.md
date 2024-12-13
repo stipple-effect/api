@@ -239,7 +239,7 @@ Any of the following will cause the function not to execute:
 
 * `#|side_mask != 8`
 * For any `i`, `side_mask[i] < -10`
-* For any `i`, `side_mask[i] > -10`
+* For any `i`, `side_mask[i] > 10`
 
 ### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `outline`
 ```js
