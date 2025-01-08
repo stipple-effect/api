@@ -2,7 +2,7 @@
 
 [`< API`](README.md)
 
-`light`'s correspondent type in the Stippe Effect source code is [`Light`](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/scripting/util/Light.java).
+`light`'s correspondent type in the Stippe Effect source code is [`Light`](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/scripting/util/Light.java).
 
 ---
 

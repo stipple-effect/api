@@ -58,7 +58,7 @@ $SE.get_project() -> project
 ```
 Returns the current active project in Stipple Effect.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/new_project.png) `new_project`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/new_project.png) `new_project`
 1.  ```js
     $SE.new_project(int w, int h, bool open_in_se) -> project
     ```
@@ -183,7 +183,7 @@ $SE.has_pal() -> bool
 ```
 Returns `true` if there is at least one palette in Stipple Effect at the time of the call, `false` otherwise.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/new_palette.png) `new_pal`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/new_palette.png) `new_pal`
 ```js
 $SE.new_pal(color{} cs, string name);
 ```
@@ -241,11 +241,11 @@ Any of the following will cause the function not to execute:
 * For any `i`, `side_mask[i] < -10`
 * For any `i`, `side_mask[i] > 10`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `outline`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/outline.png) `outline`
 ```js
 $SE.outline(int[]{} selection, int[] side_mask) -> int[]{}
 ```
-Returns the outline of the initial selection `selection` when outlined with the side mask `side_mask`. The outlining algorithm can be found [here](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/selection/Outliner.java).
+Returns the outline of the initial selection `selection` when outlined with the side mask `side_mask`. The outlining algorithm can be found [here](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/selection/Outliner.java).
 
 **Throws:**
 
@@ -255,7 +255,7 @@ Any of the following will result in runtime errors:
 * For any `i`, `side_mask[i] < -10`
 * For any `i`, `side_mask[i] > 10`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `single_outline`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/outline.png) `single_outline`
 ```js
 $SE.single_outline(int[]{} selection, int border_px) -> int[]{}
 ```
@@ -268,7 +268,7 @@ Any of the following will result in runtime errors:
 * `border_px < -10`
 * `border_px > 10`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/outline.png) `double_outline`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/outline.png) `double_outline`
 ```js
 $SE.double_outline(int[]{} selection, int border_px) -> int[]{}
 ```
@@ -283,7 +283,7 @@ Any of the following will result in runtime errors:
 
 ## Tool functions
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/wand.png) `wand`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/wand.png) `wand`
 ```js
 $SE.wand(image img, int x, int y, float tolerance, bool global, bool diag) -> int[]{}
 ```
@@ -302,9 +302,9 @@ Returns a set of ordered pairs that represent the pixel coordinates of the resul
   * if `false`, pixels must be cardinally adjacent in order to be considered
 
 **Reading material:**
-* [`wand` and `fill` search algorithm implementation](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/tools/ToolThatSearches.java)
+* [`wand` and `fill` search algorithm implementation](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/tools/ToolThatSearches.java)
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/fill.png) `fill`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/fill.png) `fill`
 ```js
 $SE.fill(image img, color c, int x, int y, float tolerance, bool global, bool diag) -> image
 ```
@@ -312,7 +312,7 @@ $SE.fill(image img, color c, int x, int y, float tolerance, bool global, bool di
 
 Returns the resultant image of a fill operation applied to the image `img`. `fill()` performs the exact same search and computation as [`wand()`](#wand). However, instead of returning a selection as a `int[]{}`, `fill()` takes that selection and sets every pixel in that selection to the color `c` in `img`.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/fill.png) `fill_selection`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/fill.png) `fill_selection`
 1.  ```js
     $SE.fill_selection(image img, color c, int[]{} selection) -> image
     ```

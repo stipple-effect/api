@@ -2,7 +2,7 @@
 
 [`< API`](README.md)
 
-`layer`'s correspondent type in the Stippe Effect source code is [`LayerRep`](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/scripting/util/LayerRep.java).
+`layer`'s correspondent type in the Stippe Effect source code is [`LayerRep`](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/scripting/util/LayerRep.java).
 
 **Note:** `LayerRep` stores an immutable reference to the project that contains the layer, and to its layer index. This means that a `layer` reference in script can be "spoiled" - i.e. cease to refer to the same layer or no longer refer to a valid layer at all - if the number of layers in the project are changed, or if the order of the layers in the project is changed.
 
@@ -36,13 +36,13 @@ L.is_linked() -> bool
 ```
 Returns `true` if the cels in layer `L` are linked, `false` otherwise.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/frames_linked.png) `link_cels`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/frames_linked.png) `link_cels`
 ```js
 L.link_cels();
 ```
 Links the cels of the layer `L` together. This means that all of the cels in `L` will display the same image, and that changes made on any cel of layer `L` will be propagated to all of the cels of `L`. The linked content will be set from the cel at the current frame index.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/frames_unlinked.png) `unlink_cels`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/frames_unlinked.png) `unlink_cels`
 ```js
 L.unlink_cels();
 ```
@@ -54,13 +54,13 @@ L.is_enabled() -> bool
 ```
 Returns `true` if the layer `L` is enabled i.e. visible, `false` otherwise.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/layer_disabled.png) `disable`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/layer_disabled.png) `disable`
 ```js
 L.disable();
 ```
 Disables the layer `L`, i.e. makes it invisible.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/layer_enabled.png) `enable`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/layer_enabled.png) `enable`
 ```js
 L.enable();
 ```

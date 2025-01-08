@@ -2,7 +2,7 @@
 
 [`< API`](README.md)
 
-`project`'s correspondent type in the Stippe Effect source code is [`SEContext`](https://github.com/jbunke/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/project/SEContext.java).
+`project`'s correspondent type in the Stippe Effect source code is [`SEContext`](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/project/SEContext.java).
 
 ---
 
@@ -72,7 +72,7 @@ P.is_anim() -> bool
 ```
 Returns `true` if the project `P` has multiple frames, `false` otherwise (i.e. only has a single frame).
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/new_frame.png) `add_frame`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/new_frame.png) `add_frame`
 ```js
 P.add_frame();
 ```
@@ -80,7 +80,7 @@ Adds a new frame to the project `P` directly after the current active frame. The
 
 **Fails** if `P.get_frame_count() >= 300`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/duplicate_frame.png) `duplicate_frame`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/duplicate_frame.png) `duplicate_frame`
 ```js
 P.duplicate_frame();
 ```
@@ -88,7 +88,7 @@ Duplicates the current active frame of project `P` and places the duplicate dire
 
 **Fails** if `P.get_frame_count() >= 300`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/remove_frame.png) `remove_frame`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/remove_frame.png) `remove_frame`
 ```js
 P.remove_frame();
 ```
@@ -96,7 +96,7 @@ Removes the current active frame of the project `P`. If the frame to be removed 
 
 **Fails** if `P.get_frame_count() == 1`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/move_frame_back.png) `move_frame_back`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/move_frame_back.png) `move_frame_back`
 ```js
 P.move_frame_back();
 ```
@@ -104,7 +104,7 @@ Swaps the current active frame of the project `P` with the preceding frame.
 
 **Fails** if `P.get_frame_index() == 0`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/move_frame_forward.png) `move_frame_forward`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/move_frame_forward.png) `move_frame_forward`
 ```js
 P.move_frame_forward();
 ```
@@ -158,7 +158,7 @@ Any of the following will cause the function not to execute:
 * `i < 0`
 * `i >= #|P.get_layers()`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/new_layer.png) `add_layer`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/new_layer.png) `add_layer`
 ```js
 P.add_layer();
 ```
@@ -166,7 +166,7 @@ Adds a new layer to the project `P` directly above the current editing layer. Th
 
 **Fails** if `#|P.get_layers() >= 50`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/duplicate_layer.png) `duplicate_layer`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/duplicate_layer.png) `duplicate_layer`
 ```js
 P.duplicate_layer();
 ```
@@ -174,7 +174,7 @@ Duplicates the current editing layer of project `P` and places the duplicate dir
 
 **Fails** if `#|P.get_layers() >= 50`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/remove_layer.png) `remove_layer`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/remove_layer.png) `remove_layer`
 ```js
 P.remove_layer();
 ```
@@ -182,7 +182,7 @@ Removes the current editing layer of the project `P`. If the layer to be removed
 
 **Fails** if `#|P.get_layers() == 1`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/move_layer_down.png) `move_layer_down`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/move_layer_down.png) `move_layer_down`
 ```js
 P.move_layer_down();
 ```
@@ -190,7 +190,7 @@ Swaps the current editing layer of the project `P` with the layer below.
 
 **Fails** if `P.get_layer().index == 0`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/move_layer_up.png) `move_layer_up`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/move_layer_up.png) `move_layer_up`
 ```js
 P.move_layer_up();
 ```
@@ -198,7 +198,7 @@ Swaps the current editing layer of the project `P` with the layer above.
 
 **Fails** if `P.get_layer().index == #|P.get_layers() - 1`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/merge_with_layer_below.png) `merge_with_below`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/merge_with_layer_below.png) `merge_with_below`
 ```js
 P.merge_with_below();
 ```
@@ -206,7 +206,7 @@ Merges the current editing layer of the project `P` with the layer below it if t
 
 **Fails** if `P.get_layer().index == 0`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/flatten.png) `flatten`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/flatten.png) `flatten`
 ```js
 P.flatten();
 ```
@@ -263,13 +263,13 @@ P.invert_selection();
 ```
 Inverts the current pixel selection of the project `P`. That is, for every pixel on the project canvas, it will be included in the updated selection if and only if it is not part of the current selection.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/save.png) `save`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/save.png) `save`
 ```js
 P.save();
 ```
 Saves the project `P` if `P` has a valid save configuration (`save_config`). That is, `P` has been assigned a folder, a filename, a valid project type for its contents (whether STIP, single PNG, GIF, etc.) and any associated metadata.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/save_as.png) `save_as`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/save_as.png) `save_as`
 ```js
 P.save_as(save_config sc);
 ```
@@ -301,7 +301,7 @@ P.get_height() -> int
 ```
 Returns the pixel height of the canvas of `P`.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/resize.png) `resize`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/resize.png) `resize`
 ```js
 P.resize(int w, int h);
 ```
@@ -315,7 +315,7 @@ Any of the following will cause the function not to execute:
 * `h <= 0`
 * `h > 1080`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/pad.png) `pad`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/pad.png) `pad`
 ```js
 P.pad(int l, int r, int t, int b);
 ```
@@ -329,7 +329,7 @@ Any of the following will cause the function not to execute:
 * `P.get_height() + t + b <= 0`
 * `P.get_height() + t + b > 1080`
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/stitch_split_frames.png) `stitch`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/stitch_split_frames.png) `stitch`
 ```js
 P.stitch(int frames_per_dim, bool dim);
 ```
@@ -349,7 +349,7 @@ Any of the following will cause the function not to execute:
 * [Stitch operation in the documentation](../docs/sizing.md/#stitch-frames-into-sprite-sheet)
 * [Dimension constants](global.md/#dimension-constants)
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/stitch_split_frames.png) `split_px`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/stitch_split_frames.png) `split_px`
 ```js
 P.split_px(int frm_w, int frm_h, bool dim, bool trunc_x, bool trunc_y);
 ```
@@ -375,7 +375,7 @@ Any of the following will cause the function not to execute:
 * [Split operation in the documentation](../docs/sizing.md/#split-sprite-sheet-into-frames)
 * [Dimension constants](global.md/#dimension-constants)
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/stitch_split_frames.png) `split`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/stitch_split_frames.png) `split`
 ```js
 P.split(int cols, int rows, bool dim, bool trunc_x, bool trunc_y);
 ```
@@ -418,7 +418,7 @@ Reading material:
 * [Scope in the documentation](../docs/scope.md)
 * [Scope constants](global.md/#scope-constants)
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/palettize.png) `palettize`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/palettize.png) `palettize`
 ```js
 P.palettize(palette pal, int scope, bool include_disabled, bool ignore_selection);
 ```
@@ -426,7 +426,7 @@ Maps the colors of the pixels in the scope `scope` in the project `P` to their n
 
 See [above](#color-actions) for details about `scope` and the flags `include_disabled` and `ignore_selection`.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/contents_to_palette.png) `extract_to_pal`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/contents_to_palette.png) `extract_to_pal`
 ```js
 P.extract_to_pal(palette pal, int scope, bool include_disabled, bool ignore_selection);
 ```
@@ -434,7 +434,7 @@ Extracts the colors of the pixels in the scope `scope` in the project `P` to the
 
 See [above](#color-actions) for details about `scope` and the flags `include_disabled` and `ignore_selection`.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/hsv_shift.png) `hsv_shift`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/hsv_shift.png) `hsv_shift`
 ```js
 P.hsv_shift(int scope, bool include_disabled, bool ignore_selection, int h_shift, N s_shift, N v_shift);
 ```
@@ -452,7 +452,7 @@ Shifts the HSV levels of the pixels in the scope `scope` in the project `P` by t
 
 See [above](#color-actions) for details about `scope` and the flags `include_disabled` and `ignore_selection`.
 
-### ![](https://raw.githubusercontent.com/jbunke/stipple-effect/master/res/icons/color_script.png) `color_script`
+### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/color_script.png) `color_script`
 ```js
 P.color_script(int scope, bool include_disabled, bool ignore_selection, script cs);
 ```

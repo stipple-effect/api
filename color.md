@@ -2,7 +2,7 @@
 
 [`< API`](README.md)
 
-This API inherits the `color` type from the DeltaScript base language and extends it in the ways described below.
+This API inherits the `color` type from the *DeltaScript* base language and extends it in the ways described below.
 
 ## Properties
 
