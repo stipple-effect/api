@@ -1,6 +1,6 @@
-# `$Graphics`
-
 [`< API`](README.md)
+
+# `$Graphics`
 
 The `$Graphics` namespace houses graphics utilities for processing images and colors.
 
@@ -24,7 +24,7 @@ $Graphics.DL_BR = [ 1.0, -1.0, 1.0 ]            // From the bottom-right
 $Graphics.DL_DIRECT = [ 0.0, 0.0, 1.0 ]         // Frontlit
 ```
 
-**Reading material:**
+**Read more:**
 * [`light`](./light.md)
 * [Directional light constructor](#dir_light)
 
@@ -43,7 +43,7 @@ A directional light, as opposed to a point light, shines with a non-dimming lumi
 
 `light` objects are mutable. Arguments `luminosity`, `c`, and `direction` passed to the constructor can be overridden by using the mutator methods of `light`.
 
-**Reading material:**
+**Read more:**
 * [Light direction constants](#light-direction-constants)
 
 ### `gen_lookup`
@@ -53,8 +53,8 @@ $Graphics.gen_lookup(image source, bool dim) -> image
 
 Takes an image `source` and generates a corresponding lookup image where every non-transparent pixel in `source` is assigned a unique opaque RGB color. The flag `dim` determines whether the lookup will have vertical or horizontal striping.
 
-**Reading material:**
-* [Lookup generation algorithm implementation](https://github.com/jbunke/delta-time/blob/master/sprite/src/com/jordanbunke/delta_time/sprite/UVMapping.java#L85)
+**Read more:**
+* [Lookup generation algorithm implementation![](./assets/external.png)](https://github.com/jbunke/delta-time/blob/master/sprite/src/com/jordanbunke/delta_time/sprite/UVMapping.java#L85)
 * [Dimension constants](./global.md#dimension-constants)
 
 ### `lerp_color`
@@ -118,6 +118,6 @@ Otherwise, returns the following image:
     * sets position `(ax, ay)` of the output image to `c`
   
 
-**Reading material:**
-* [UV mapping algorithm implementation](https://github.com/jbunke/delta-time/blob/master/sprite/src/com/jordanbunke/delta_time/sprite/UVMapping.java#L40)
+**Read more:**
+* [UV mapping algorithm implementation![](./assets/external.png)](https://github.com/jbunke/delta-time/blob/master/sprite/src/com/jordanbunke/delta_time/sprite/UVMapping.java#L40)
 * [`gen_lookup()`](#gen_lookup) - generating a naive lookup map for a `texture`

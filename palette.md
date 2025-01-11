@@ -1,8 +1,8 @@
-# `palette`
-
 [`< API`](README.md)
 
-`palette`'s correspondent type in the Stippe Effect source code is [`Palette`](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/palette/Palette.java).
+# `palette`
+
+`palette` objects created in scripts are internally represented by the [`Palette`![](./assets/external.png)](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/palette/Palette.java) class from the *Stipple Effect* source code.
 
 ---
 

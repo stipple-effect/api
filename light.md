@@ -1,8 +1,8 @@
-# `light`
-
 [`< API`](README.md)
 
-`light`'s correspondent type in the Stippe Effect source code is [`Light`](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/scripting/util/Light.java).
+# `light`
+
+`light` objects created in scripts are internally represented by the [`Light`![](./assets/external.png)](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/scripting/util/Light.java) class from the *Stipple Effect* source code.
 
 ---
 

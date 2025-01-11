@@ -1,6 +1,6 @@
-# API Changelog
-
 [`< Home`](README.md)
+
+# API Changelog
 
 ## 1.2.2
 

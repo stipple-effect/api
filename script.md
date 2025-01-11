@@ -1,8 +1,8 @@
-# `script`
-
 [`< API`](README.md)
 
-`script`'s correspondent type in the Stippe Effect source code is the [*Delta Time*](https://github.com/jbunke/delta-time) class [`HeadFuncNode`](https://github.com/jbunke/delta-time/blob/master/script/src/com/jordanbunke/delta_time/scripting/ast/nodes/function/HeadFuncNode.java).
+# `script`
+
+`script` objects created in scripts are internally represented by the [`HeadFuncNode`![](./assets/external.png)](https://github.com/jbunke/delta-time/blob/master/script/src/com/jordanbunke/delta_time/scripting/ast/nodes/function/HeadFuncNode.java) class from the [*Delta Time*![](./assets/external.png)](https://github.com/jbunke/delta-time) library.
 
 ---
 
@@ -35,6 +35,6 @@ For an arbitrary `script` object named `S`, functions of the form `S.func_name(p
    
    Void `run()` can be called on a child script `S` that has a return type; the value returned by `S` will simply be ignored.
 
-Reading material:
+**Read more:**
 
 * [Script structure in the documentation](../docs/scripting.md#syntax)

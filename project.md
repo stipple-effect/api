@@ -1,8 +1,8 @@
-# `project`
-
 [`< API`](README.md)
 
-`project`'s correspondent type in the Stippe Effect source code is [`SEContext`](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/project/SEContext.java).
+# `project`
+
+`project` objects created in scripts are internally represented by the [`SEContext`![](./assets/external.png)](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/project/SEContext.java) class from the *Stipple Effect* source code.
 
 ---
 
@@ -345,7 +345,7 @@ Any of the following will cause the function not to execute:
 * `frames_per_dim > 300`
 * `frames_per_dim <= 0`
 
-**Reading material:**
+**Read more:**
 * [Stitch operation in the documentation](../docs/sizing.md/#stitch-frames-into-sprite-sheet)
 * [Dimension constants](global.md/#dimension-constants)
 
@@ -371,7 +371,7 @@ Any of the following will cause the function not to execute:
 * `frm_h <= 0`
 * `frm_h > P.get_height()`
 
-**Reading material:**
+**Read more:**
 * [Split operation in the documentation](../docs/sizing.md/#split-sprite-sheet-into-frames)
 * [Dimension constants](global.md/#dimension-constants)
 
@@ -396,7 +396,7 @@ Any of the following will cause the function not to execute:
 * `rows <= 0`
 * `cols * row > 300`
 
-**Reading material:**
+**Read more:**
 * [Split operation in the documentation](../docs/sizing.md/#split-sprite-sheet-into-frames)
 * [Dimension constants](global.md/#dimension-constants)
 
@@ -414,7 +414,8 @@ The flag `include_disabled` will include disabled/invisible layers in the operat
 
 The flag `ignore_selection` will apply the operation to the entire canvas if it is `true` or if the project has no selection. If `ignore_selection` is false and the project has a selection, the operation will only be applied to the pixels in the selection.
 
-Reading material:
+**Read more:**
+
 * [Scope in the documentation](../docs/scope.md)
 * [Scope constants](global.md/#scope-constants)
 
@@ -461,7 +462,9 @@ Modifies the colors of the pixels in the scope `scope` in the project `P` accord
 See [above](#color-actions) for details about `scope` and the flags `include_disabled` and `ignore_selection`.
 
 **Note:**
+
 `cs` must have a valid color script type signature: `(color -> color)`. Attempting to pass an invalid script will result in a runtime error.
 
-Reading material:
+**Read more:**
+
 * [Color scripts in the documentation](../docs/color-scripts.md)

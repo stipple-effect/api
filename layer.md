@@ -1,10 +1,12 @@
-# `layer`
-
 [`< API`](README.md)
 
-`layer`'s correspondent type in the Stippe Effect source code is [`LayerRep`](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/scripting/util/LayerRep.java).
+# `layer`
 
-**Note:** `LayerRep` stores an immutable reference to the project that contains the layer, and to its layer index. This means that a `layer` reference in script can be "spoiled" - i.e. cease to refer to the same layer or no longer refer to a valid layer at all - if the number of layers in the project are changed, or if the order of the layers in the project is changed.
+`layer` objects created in scripts are internally represented by the [`LayerRep`![](./assets/external.png)](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/scripting/util/LayerRep.java) class from the *Stipple Effect* source code.
+
+**Note:**
+
+`LayerRep` stores an immutable reference to the project that contains the layer, and to its layer index. This means that a `layer` reference in script can be "spoiled" - i.e. cease to refer to the same layer or no longer refer to a valid layer at all - if the number of layers in the project are changed, or if the order of the layers in the project is changed.
 
 ---
 

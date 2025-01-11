@@ -2,7 +2,7 @@
   * [`$SE`](global.md) (global)
   * [`$Graphics`](graphics.md)
   * [`$Math`](math.md)
-* Types
+* API types
   * [`layer`](layer.md)
   * [`light`](light.md)
   * [`palette`](palette.md)

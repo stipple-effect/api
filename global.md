@@ -1,8 +1,10 @@
+[`< API`](README.md)
+
 # Global namespace (`$SE`)
 
 [`< API`](README.md)
 
-The global namespace for this API is `$SE`. Most Stipple Effect functions that are not called on an object are called on the global namespace.
+The global namespace for this API is `$SE`. Most API functions that are not called on an object are called on the global namespace.
 
 ---
 
@@ -104,7 +106,7 @@ Any of the following will result in runtime errors:
     { '/', '\\', ':', '*', '?', '"', '<', '>', '|', '{', '}' }
     ```
 
-**Reading material:**
+**Read more:**
 * [Save type constants](global.md/#save-type-constants)
 
 ### `read_script`
@@ -122,7 +124,7 @@ Any of the following will result in runtime errors:
 
 Script execution will terminate if the child script fails its semantic error check.
 
-**Reading material:**
+**Read more:**
 * [Child scripts in the documentation](../docs/child-scripts.md)
 
 ### `transform`
@@ -245,7 +247,11 @@ Any of the following will cause the function not to execute:
 ```js
 $SE.outline(int[]{} selection, int[] side_mask) -> int[]{}
 ```
-Returns the outline of the initial selection `selection` when outlined with the side mask `side_mask`. The outlining algorithm can be found [here](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/selection/Outliner.java).
+Returns the outline of the initial selection `selection` when outlined with the side mask `side_mask`.
+
+**Read more:**
+
+* [Outlining algorithm in the source code![](./assets/external.png)](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/selection/Outliner.java)
 
 **Throws:**
 
@@ -301,8 +307,9 @@ Returns a set of ordered pairs that represent the pixel coordinates of the resul
   * if `true`, adjacency is defined as cardinal adjacency + diagonal adjacency
   * if `false`, pixels must be cardinally adjacent in order to be considered
 
-**Reading material:**
-* [`wand` and `fill` search algorithm implementation](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/tools/ToolThatSearches.java)
+**Read more:**
+
+* [`wand` and `fill` search algorithm implementation![](./assets/external.png)](https://github.com/stipple-effect/stipple-effect/blob/master/src/com/jordanbunke/stipple_effect/tools/ToolThatSearches.java)
 
 ### ![](https://raw.githubusercontent.com/stipple-effect/stipple-effect/master/res/icons/fill.png) `fill`
 ```js
