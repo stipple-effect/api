@@ -191,25 +191,6 @@ $SE.new_pal(color{} cs, string name);
 ```
 Creates a new palette in Stipple Effect from the set of colors `cs` with the name `name`.
 
-### `hsv`
-1.  ```js
-    $SE.hsv(float h, float s, float v, int a) -> color
-    ```
-    Returns a color built from its hue, saturation, value and alpha components. Unlike `rgba()`, which takes as arguments integer values ranging from 0 to 255, each of the HSV component arguments (`h`, `s` and `v`) is a float ranging from 0.0 to 1.0. `a`, however, is still an integer ranging from 0 to 255.
-
-    **Throws:**
-
-    Any of the following will result in a runtime exception:
-
-    * For any `comp` of `h`, `s`, `v`; `comp < 0.0`
-    * For any `comp` of `h`, `s`, `v`; `comp > 1.0`
-    * `a > 255`
-    * `a < 0`
-2.  ```js
-    $SE.hsv(float h, float s, float v) -> color
-    ```
-    Equivalent to `$SE.hsv(h, s, v, 255)`
-
 ## Outline functions
 
 ### `get_side_mask`

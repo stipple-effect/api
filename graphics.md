@@ -57,6 +57,25 @@ Takes an image `source` and generates a corresponding lookup image where every n
 * [Lookup generation algorithm implementation![](./assets/external.png)](https://github.com/jbunke/delta-time/blob/master/sprite/src/com/jordanbunke/delta_time/sprite/UVMapping.java#L85)
 * [Dimension constants](./global.md#dimension-constants)
 
+### `hsv`
+1.  ```js
+    $Graphics.hsv(float h, float s, float v, int a) -> color
+    ```
+    Returns a color built from its hue, saturation, value and alpha components. Unlike `rgba()`, which takes as arguments integer values ranging from 0 to 255, each of the HSV component arguments (`h`, `s` and `v`) is a float ranging from 0.0 to 1.0. `a`, however, is still an integer ranging from 0 to 255.
+
+    **Throws:**
+
+    Any of the following will result in a runtime exception:
+
+    * For any `comp` of `h`, `s`, `v`; `comp < 0.0`
+    * For any `comp` of `h`, `s`, `v`; `comp > 1.0`
+    * `a > 255`
+    * `a < 0`
+2.  ```js
+    $Graphics.hsv(float h, float s, float v) -> color
+    ```
+    Equivalent to `$Graphics.hsv(h, s, v, 255)`
+
 ### `lerp_color`
 ```js
 $Graphics.lerp_color(color a, color b, float t) -> color
