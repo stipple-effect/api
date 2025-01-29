@@ -2,6 +2,13 @@
 
 # API Changelog
 
+## 1.2.3
+
+### Changed:
+* Refactored `hsv` color generation functions from `$SE` to `$Graphics`
+  * `$SE.hsv(float h, float s, float v, int a) -> color` to `$Graphics.hsv(float h, float s, float v, int a) -> color`
+  * `$SE.hsv(float h, float s, float v) -> color` to `$Graphics.hsv(float h, float s, float v) -> color`
+
 ## 1.2.2
 
 ### Added:
